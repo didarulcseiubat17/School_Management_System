@@ -19,7 +19,7 @@ class Staff(models.Model):
     last_name = models.CharField(max_length=100)
     contact = models.CharField(max_length=20, unique=True) #unique can be set
     details = models.CharField(max_length=500, null=True, blank=True)
-
+    join_date = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.first_name+', '+self.last_name+' : '+str(self.StaffType)
@@ -69,7 +69,7 @@ class Student(models.Model):
 
 
 class StudentEnroll(models.Model):
-    roll_num = models.CharField(max_length=20, primary_key=True,db_index=True,
+    roll_num = models.CharField(max_length=20, primary_key=True, db_index=True,
                                 help_text='Assign Roll Number formate : YY+class_code+max_seq')
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     section = models.ForeignKey(Section, on_delete=models.CASCADE, help_text='Assign Class_code')

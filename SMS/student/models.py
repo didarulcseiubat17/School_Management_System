@@ -14,7 +14,7 @@ class StaffType(models.Model):
 
 class Staff(models.Model):
     user_name = models.CharField(max_length=100,primary_key=True)
-    StaffType = models.ForeignKey(StaffType, db_column='staff_type', on_delete=models.PROTECT)
+    StaffType = models.ForeignKey(StaffType, db_column='staff_type', on_delete= models.PROTECT)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     contact = models.CharField(max_length=20, unique=True) #unique can be set
